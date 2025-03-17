@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { navItems } from "../constant/data";
 import { RiCloseLine, RiMenuLine } from "@remixicon/react";
+import logo from '/images/Logo.png'
+import blackLogo from '/images/footer-brand.png'
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,12 +29,16 @@ const Header = () => {
     >
       <div className="container flex items-center justify-between">
         <a href="#" className="">
-          <img src="/images/Logo.png" alt="logo" width={144} height={30} />
+          {isScrolled ?
+
+          <img src={blackLogo} alt="logo" width={144} height={30} /> :
+          <img src={logo} alt="logo" width={144} height={30} />
+          }
         </a>
         <ul className="gap-[32px] hidden md:flex">
           {navItems.map((item) => (
             <li key={item.id}>
-              <a href={item.path} className="text-inherit nav-link">
+              <a href={item.path} className={isScrolled ? "after:bg-neutral-900" : "text-inherit nav-link"}>
                 {item.label}
               </a>
             </li>
@@ -62,13 +68,13 @@ const Header = () => {
           </ul>
           <a
             href="#"
-            className="bg-ligth py-3 px-5 rounded-[21px] text-[#FFFAF9] hover:ring-1 hover:ring-[#fff5] transition-colors"
+            className="bg-neutral-300/50 py-3 px-5 rounded-[21px] text-[#333] hover:ring-1 hover:ring-neutral-800 transition-colors inline-block mt-auto max-w-max"
           >
             Request Demo
           </a>
         </nav>
         <button
-          className="text-white md:hidden"
+          className={`text-white md:hidden ${isScrolled ? "text-neutral-900" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
         >
           <RiMenuLine size={30} />
@@ -79,7 +85,7 @@ const Header = () => {
         ></div>
         <a
           href="#"
-          className="bg-ligth py-3 px-5 rounded-[21px] text-[#FFFAF9] hover:ring-1 hover:ring-[#fff5] transition-colors hidden md:block"
+          className={isScrolled ? "bg-neutral-300/50 py-3 px-5 rounded-[21px] text-[#333] hover:ring-1 hover:ring-neutral-800 transition-colors hidden md:block" : "bg-ligth py-3 px-5 rounded-[21px] text-[#FFFAF9] hover:ring-1 hover:ring-[#fff5] transition-colors hidden md:block"}
         >
           Request Demo
         </a>

@@ -81,7 +81,7 @@
 }
 
 .navbar{
-    @apply md:hidden block absolute top-0 left-0 bg-white h-[100vh] w-full max-w-[360px] text-neutral-800 p-10 z-10 -translate-x-[370px] transition-transform duration-500
+    @apply md:hidden flex flex-col absolute top-0 left-0 bg-white h-[100vh] w-full max-w-[360px] text-neutral-800 p-10 z-10 -translate-x-[370px] transition-transform duration-500
 }
 .navbar.active{
     @apply translate-x-[0]
