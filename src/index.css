@@ -38,6 +38,23 @@
 
 
 /* HEADER */
+.header{
+    @apply fixed items-center top-0 left-0 z-10 w-full py-6 text-white
+}
+.header.active{
+    background:#fff;
+    color: #333;
+    box-shadow: 0 2px 0 #0002;
+    animation: slideIn forwards 0.5s ease-in-out;
+}
+@keyframes slideIn {
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
 .nav-link{
     position: relative;
 }
