@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base{
+    body{
+        @apply overflow-x-hidden
+    }
+    h1,h2,h3,h4{
+        @apply font-poppins font-bold text-neutral-900 leading-tight
+    }
+    h1{
+        @apply lg:text-7xl text-[36px] sm:text-[46px] font-extrabold
+    }
+    h2{
+        @apply font-semibold text-[40px] text-center
+    }
+    h3{
+        @apply text-[30px]
+    }
+    p{
+        @apply font-inter leading-normal text-[16px] md:text-[18px]
+    }
+}
+@layer utilities {
+    .container{
+        @apply xs:max-w-[540px] xs:w-full sm:max-w-[720px] md:max-w-[960px] lg:max-w-[1182px]
+        px-4 md:px-6 mx-auto
+    }
+    .section{
+        @apply pt-[82px]
+    }
+    .img-cover{
+        @apply w-full object-cover h-auto
+    }
+}
+
+
+/* HEADER */
+.nav-link{
+    position: relative;
+}
+.nav-link::after{
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    margin-inline: auto;
+    transition: width 0.5s;
+    transform-origin: left;
+}
+.nav-link:is(:hover,:focus)::after{
+    width: 100%;
+    transform-origin: right;
+}
+.nav-link:active{
+    width: 100%;
+}
+
+.navbar{
+    @apply md:hidden block absolute top-0 left-0 bg-white h-[100vh] w-full max-w-[360px] text-neutral-800 p-10 z-10 -translate-x-[370px] transition-transform duration-500
+}
+.navbar.active{
+    @apply translate-x-[0]
+}
+.overlay{
+    @apply absolute top-0 left-0 w-full h-[100vh] bg-neutral-700/50 z-[9] opacity-0 pointer-events-none transition-opacity duration-500
+}
+.overlay.active{
+    @apply opacity-100 pointer-events-auto
+}
